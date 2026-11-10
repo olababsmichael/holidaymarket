@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background: #faf8f2;
+        line-height: 1.6;
+        color: #153d32;
+    }
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+    button {
+        cursor: pointer;
+    }    
+    img {
+        width: 100%;
+        display: block;
+        object-fit: cover;
+    }
+
+
+    body > div:first-child {
+        background-color: #a50019;
+        padding: 10px;
+        color: white;
+        text-align: center;
+        font-size: 13px;
+    }
+    body > div:first-child a {
+        color: white;
+        margin-left: 10px;
+    }
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #fffdf8;
+        gap: 25px;
+        padding: 20px 7%;
+    }
+    header h1 {
+        font-family: Georgia, serif;
+        font-size: 25px;
+        letter-spacing: 2px;
+    }
+    header p {
+        font-size: 10px;
+        letter-spacing: 2px;
+    }
+    nav ul{
+        display: flex;
+        list-style: none;
+        gap: 20px;
+    }
+    nav a {
+        font-size: 15px;
+        transition: 0.3s;
+    }
+    nav a:hover {
+        color: #a50019;
+    }
+    header div:last-child {
+        display: flex;
+        gap: 20px;
+        font-size: 19px;
+        position: relative;
+    } 
+    header div:last-child a:hover {
+        color: #a50019;
+    }
+    header div:last-child span {
+        position: absolute;
+        top: -9px;
+        right: -10px;
+        background-color: #a50019;
+        color: white;
+        font-size: 10px;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* MAIN SECTIONS-HERO */
+    .hero {
+        width: 100%;
+        min-height: 400px;
+        
+        background-image: url('intersect.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        display: flex;
+        align-items: center;
+
+        padding: 50px 7%;
+
+    }
+    .hero-content {
+        max-width: 450px;
+    }
+    .hero-content h2 {
+        font-family: Georgia, serif;
+        font-size: 50px;
+        line-height: 1.1;
+        margin: 15px 0;
+    }
+    .hero-content p {
+        margin-bottom: 15px;
+    }
+    .hero-button {
+        display: inline-block;
+        background-color: #a50019;
+        color: white;
+        padding: 15px;
+        border-radius: 10px;
+    }
+    .categories {
+        text-align: center;
+        padding: 50px 7%;
+    }
+    .categories h2 {
+        font-family: Georgia, serif;
+        font-size: 35px;
+    }
+    .category-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 18px;
+        margin-top: 30px;
+    }
+    .category-card {
+        position: relative;
+        overflow: hidden;
+        border-radius: 7px;
+    }
+    .category-card h3 {
+        position: absolute;
+        bottom: 12px;
+        left: 15px;
+        font-size: 21px;
+        font-family: Georgia, serif;
+    } 
+
+      /*Best Sellers*/
+    .best-seller {
+        padding: 40px 7%;
+    }
+    .best-seller-header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .best-seller-header h2 {
+        font-size: 35px;
+        font-family: Georgia, serif;
+    }
+    .product-card h3, .product-card h4, .product-card p {
+        font-size: 14px;
+    }
+    .product-card p {
+        color: #b58b20
+    }
+    .product-card h4 {
+        color: #153d32;
+    }
+    .product-container {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 15px;
+        margin-top: 25px;
+    }
+    .product-card {
+        background-color: white;
+        border: 1px solid #e8e3d9;
+        border-radius: 7px;
+        overflow: hidden;
+        padding-bottom: 12px;
+        box-shadow: 0 2px 5px #ccc;
+        transition: background-color 0.3s ease-in-out, transform 0.3s, box-shadow 0.3s ease;;
+
+        /* padding: 20px; */
+    }
+    .product-card:hover {
+        background-color: #f1eee7;
+        transform: translateY(-5px);
+        box-shadow: 0 4px 10px #ccc;
+    }
+    .product-card button {
+        display: block;
+        margin: 10px 12px 0;
+        background-color: #003c30;
+        color: white;
+        border-radius: 5px;
+        border: none;
+        padding: 11px;
+        width: calc(100% - 24px);
+        margin-top: 10px;
+        cursor: pointer;
+    }
+    .product-card button:hover {
+        background-color: #a50019;
+    }
+    .product-image img {
+        width: 90%;
+        height: 90%;
+        object-fit: cover;
+        display: block;
+        margin: 0 auto;
+    }
+    .product-details {
+        padding: 0 12px;
+        margin-top: 10px;
+    }
+    .product-image {
+        width: 100%;
+        height: 150px;
+        background-color: #f1eee7;
+    }
+    .promo-section {
+        background-color: #f1eee7;
+        color: white;
+        padding:40px 7%;
+        text-align: left;
+    }
+    .promo-button:hover {
+        background-color: #003c30;
+        color: white;
+        border: 1px solid #003c30;
+    }
+    .promo-content {
+        background-color: #a50019;
+        padding: 30px;
+        border-radius: 10px;
+    }
+    .promo-content h2 {
+        font-family: Georgia, serif;
+        font-size: 35px;
+        line-height: 1.1;
+    }
+    .promo-content p {
+        font-size: 14px;
+        line-height: 1.1;
+    }
+    .promo-button {
+        display: inline-block;
+        color: #003c30;
+        font-size: 14px;
+        transition: 0.3s;
+        border: 1px solid #ffffff;
+        padding: 10px 15px;
+        border-radius: 5px;
+        background-color: white;
+        margin-top: 15px;
+    }
+    .newsletter {
+        background-color: #f1eee7;
+        padding: 0px 7% 40px;
+        display: flex;
+        justify-content: space-between;
+        gap: 25px;
+        align-items: center;
+    }
+    .newsletter h2 {
+        font-family: Georgia, serif;
+        font-size: 35px;
+    }
+    .newsletter p {
+        font-size: 14px;
+    }
+    .newsletter-form {
+        display: flex;
+        gap: 10px;
+    }
+    .newsletter-form input {
+        padding: 14px;
+        border-radius: 5px;
+        border: none;
+        background-color: white;
+        width: 250px;
+    }
+    .newsletter-form input:focus {
+        box-shadow: 0 0 5px #a50019;
+        outline: none;
+    }
+    .newsletter-form button {
+        padding: 14px;
+        border-radius: 5px;
+        border: none;
+        background-color: #a50019;
+        color: white;
+    }
+    .newsletter-form button:hover {
+        background-color: #003c30;
+    }
+    
+    .footer {
+        background-color: #003c30;
+        color: white;
+        padding: 40px 7%;
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1.5fr;
+        gap: 35px;
+    }
+    .footer h2 {
+        font-family: Georgia, serif;
+        font-size: 23px;
+    }
+    .footer h3 {
+        margin-bottom: 15px;
+    }
+    .footer p {
+        font-size: 13px;
+        margin: 10px 0;
+    }
+    .footer-brand {
+        width: calc(100% - 25px);
+    }
+    .footer-brand .social-links {
+        display: flex;
+        gap: 15px;
+        margin-top: 10px;
+    }
+    .footer-brand .social-links a {
+        color: white;
+        font-size: 18px;
+        transition: 0.3s;
+    }
+    .footer-brand .social-links a:hover {
+        color: #d8bd83;
+        transform: translateY(-3px);
+    }
+    .footer ul {
+        list-style: none;
+    }
+    .footer li {
+        margin-bottom: 8px;
+        font-size: 13px;
+    }
+    .footer a:hover {
+        color: #d8bd83
+    }
+    .footer-bottom {
+        grid-column: 1 / -1;
+        text-align: center;
+        margin-top: 20px;
+        font-size: 13px;
+        border-top: 1px solid #45665c;
+    }
+    .footer-contact p {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 13px;
+        margin-bottom: 12px;
+    }
+    .footer-contact i {
+        color: #d8bd83;
+        font-size: 16px;
+    }
+    
+    </style>
+</head>
+<body>
+
+    
+<!-- Announcement Bar-->
+<div>
+    <p  class="apple-text">
+    Shop early for the best selection of holiday favourites. 
+    <a href="#" aria-label="Shop Now">Shop now &rarr;</a>
+</p>
+</div>
+
+<!-- Header / Navigation-->
+<header>
+    <div>
+        <h1>HOLIDAY MARKET</h1>
+        <p>GIFTS . HOME . FASHION . BEAUTY</p>
+    </div>
+        <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Gifts</a></li>
+            <li><a href="#">Fashion</a></li>
+            <li><a href="#">Beauty</a></li>
+            <li><a href="#">Sale</a></li>
+        </ul>
+    </nav>
+    <div>
+        <a href="#" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></a>
+        <a href="#" aria-label="Account"><i class="fa-regular fa-user"></i></a>
+        <a href="#" aria-label="Cart"><i class="fa-solid fa-bag-shopping"></i><span>0</span></a>
+    </div>
+    
+</header>
+
+<!--Hero Section-->
+<main>
+    <section class="hero">
+        <div class="hero-content">
+            <p>GIFTS . HOME . FASHION . BEAUTY</p>
+            <h2>Make the season memorable</h2>
+            <p>Thoughtful gifts, cozy home essentials and stylish finds for the people you love.</p>
+            <a href="#" class="hero-button">Shop Holiday Gifts</a>  
+        </div>
+    </section>
+    
+    <!--Gift Categories-->
+    <section class="categories">
+            <h2>Find the perfect gift</h2>
+            <p>Explore our handpicked categories for everyone on your list.</p>
+        <div class="category-container">
+            <article class="category-card">
+                <img src="Intersect.jpg">
+                <h3><a href="#">For Her &rarr;</a></h3>
+            </article>
+            <article class="category-card">
+                <img src="Intersect.jpg">
+                <h3><a href="#">For Him &rarr;</a></h3>
+            </article>
+            <article class="category-card">
+                <img src="Intersect.jpg">
+                <h3><a href="#">For the Home &rarr;</a></h3>
+            </article>
+            <article class="category-card">
+                <img src="Intersect.jpg">
+                <h3><a href="#">Little Treats &rarr;</a></h3>
+            </article>
+        </div>
+    </section>
+    <!-- Gift Categories-->
+
+
+     <!--Best Sellers-->
+     <section class="best-seller">
+        <div class="best-seller-header">
+            <div>
+                <h2>Best Sellers</h2>
+                <p>Our most loved gifts, chosen just for you</p>
+            </div>
+            <a href="#">Shop All &rarr;</a>
+        </div>
+        <div class="product-container">
+            <article class="product-card">
+                <div class="product-image">
+                    <img src="vrr.png" alt="Product Image"> 
+                </div>
+                <div class="product-details">
+                    <h3>Classic Leather Handbag</h3>
+                    <p>★★★★★ (124)</p>
+                    <h4>₦45,000</h4>
+                </div>
+                <button>Add to Cart</button>
+            </article>
+            <article class="product-card">
+                <div class="product-image">
+                    <img src="vrr.png" alt="Product Image">
+                </div>
+                <div class="product-details">
+                    <h3>Smart Watch</h3>
+                    <p>★★★★★ (98)</p>
+                    <h4>₦38,000</h4>
+                </div>
+                <button>Add to Cart</button>
+            </article>
+            <article class="product-card">
+                <div class="product-image">
+                    <img src="vrr.png" alt="Product Image">
+                </div>
+                <div class="product-details">
+                    <h3>Luxury Perfume</h3>
+                    <p>★★★★★ (67)</p>
+                    <h4>₦32,000</h4>
+                </div>
+                <button>Add to Cart</button>
+            </article>
+            <article class="product-card">
+                <div class="product-image">
+                    <img src="vrr.png" alt="Product Image">
+                </div>
+                <div class="product-details">
+                    <h3>Cozy Throw Blanket</h3>
+                    <p>★★★★★ (45)</p>
+                    <h4>₦28,000</h4>
+                </div>
+                <button>Add to Cart</button>
+            </article>
+            <article class="product-card">
+                <div class="product-image">
+                    <img src="vrr.png" alt="Product Image">
+                </div>
+                <div class="product-details">
+                    <h3>Skincare Gift Set</h3>
+                    <p>★★★★★ (32)</p>
+                    <h4>₦42,000</h4>
+                </div>
+                <button>Add to Cart</button>
+            </article>
+        </div>
+     </section>
+
+     <!--Promotional Section-->
+     <section class="promo-section">
+            <div class="promo-content">
+                <p>LIMITED TIME OFFER</p>
+                <h2>Save up to 30%</h2>
+                <p>on selected holiday favorites</p>
+                <a href="#" class="promo-button">Shop Sales &rarr;</a>
+            </div>
+     </section>
+     <section class="newsletter">
+        <div>
+            <h2>Join Our Newsletter</h2>
+            <p>Be the first to know about new arrivals, exclusive offers, and holiday tips.</p>
+        </div>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+
+     </section>
+     <footer class="footer">
+        <div class="footer-brand">
+            <h2>Holiday Market</h2>
+            <p>GIFTS . HOME . FASHION . BEAUTY</p>
+            <p>Making the holidays brighter with thoughtful gifts and timeless style.</p>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+
+                <a href="#" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+                <a href="#" aria-label="X">
+                    <i class="fa-brands fa-x-twitter"></i>
+                </a>
+
+                <a href="#" aria-label="Pinterest">
+                    <i class="fa-brands fa-pinterest-p"></i>
+                </a>
+
+                <a href="#" aria-label="TikTok">
+                    <i class="fa-brands fa-tiktok"></i>
+                </a>
+            </div>
+        </div>
+        <div class="footer-links">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Shop All</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">FAQs</a></li>
+        </div>
+        <div class="footer-links">
+            <h3>Customer Care</h3>
+            <ul>
+                <li><a href="#">Shipping Policy</a></li>
+                <li><a href="#">Returns Policy</a></li>
+                <li><a href="#">Size Guide</a></li>
+                <li><a href="#">Track Order</a></li>
+                <li><a href="#">Help Center</a></li>
+            </ul>
+        </div>
+        <div class="footer-contact">
+            <h3> Get in Touch </h3>
+            <p>
+                <i class="fa-regular fa-envelope"></i>
+                support@holidaymarket.com
+            </p>
+            <p>
+                <i class="fa-solid fa-phone"></i>
+                +234 (800) 123-4567
+            </p>
+            <p>
+                <i class="fa-solid fa-location-dot"></i>
+                Lagos, Nigeria
+            </p>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Holiday Market. All rights reserved.</p>
+        </div>
+    </footer>
+</main>
+</body>
+</html>
